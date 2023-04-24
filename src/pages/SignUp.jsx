@@ -4,6 +4,7 @@ import {getAuth, createUserWithEmailAndPassword, updateProfile}
 from 'firebase/auth'
 import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
+ import OAuth from "../components/OAuth";
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
 import {db} from '../firebase.config'
 import {BsArrowRight} from 'react-icons/bs';
@@ -117,7 +118,7 @@ const onChange= (e) =>{
        
        <div className="signUpBar">
          <p className="signUpText">
-           Sign In
+           Sign Up
          </p>
          <button className="signUpButton">
          <BsArrowRight fill='#ffffff' size={28}  />
@@ -125,6 +126,8 @@ const onChange= (e) =>{
        </div>
 
     </form>
+   
+    <OAuth />
 
       
    </div>

@@ -3,6 +3,7 @@
  import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
  import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
+ import OAuth from "../components/OAuth";
  import {BsArrowRight} from 'react-icons/bs';
  import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
@@ -97,7 +98,8 @@ function SignIn() {
         </div>
 
      </form>
-
+      
+      <OAuth />
       
     </div>
   )
