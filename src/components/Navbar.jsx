@@ -1,8 +1,8 @@
  import { useNavigate, useLocation  } from "react-router-dom"
  import {RiMenu3Line ,RiCloseLine} from 'react-icons/ri';
- import { getAuth } from "firebase/auth"
+ import { getAuth, onAuthStateChanged } from "firebase/auth"
  import {AiFillCar} from 'react-icons/ai';
-  import { useState } from "react";
+  import { useState, useEffect } from "react";
 
   
 function Navbar() {
@@ -12,7 +12,23 @@ function Navbar() {
     const location= useLocation();
     const [toggleMenu, setToggleMenu]=useState(false)
     const user=auth.currentUser;
-
+    const [currentUser, setCurrentUser]=useState({})
+     
+     useEffect(()=>{
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User present
+          setCurrentUser(user)
+          // redirect to home if user is on /login page 
+        } else {
+          
+          // User not logged in
+           // redirect to login if on a protected page 
+        }
+      })
+       
+    },[user])
+    
     const pathMatchRoute=(route)=>{
       if(route == location.pathname){
         return true;
@@ -21,7 +37,7 @@ function Navbar() {
 
     const onLogout=()=>{
       auth.signOut()
-      navigate('/')
+      navigate('/sign-up')
       window.location.reload(false);
 
     }
@@ -37,22 +53,23 @@ function Navbar() {
         
         </div>
         <div className="car__navbar-links_container">
-          <p  onClick={()=> navigate('/')}>Home</p>
-          <p  onClick={()=> navigate('/offers')}>Explore</p>
-          <p  onClick={() => navigate('/profile')}>Profile</p>
+          <p className={pathMatchRoute('/') ?'navbarListItemNameActive' : 'navbarListItemName'} onClick={()=> navigate('/')}>Home</p>
+          <p className={pathMatchRoute('/offers') ?'navbarListItemNameActive' : 'navbarListItemName'} onClick={()=> navigate('/offers')}>Explore</p>
+          <p className={pathMatchRoute('/profile') ?'navbarListItemNameActive' : 'navbarListItemName'}  onClick={() => navigate('/profile')}>Profile</p>
            
           
          </div>
 
          <div className="car__navbar-sign">
-          {!user ?  <>
-          <p onClick={() => navigate('/sign-in')}>Sign in</p>
-          <button onClick={() => navigate('/sign-up')} type="button">Sign up</button>
+          {user &&  <>
+            <button onClick={onLogout} type="button">Logout</button>
            </>
-           :<>
-           <button onClick={onLogout} type="button">Logout</button>
-            </>
           }
+           {!user && <>
+           <p onClick={() => navigate('/sign-in')}>Sign in</p>
+          <button onClick={() => navigate('/sign-up')} type="button">Sign up</button>
+            </>
+           }
            
          </div>
     

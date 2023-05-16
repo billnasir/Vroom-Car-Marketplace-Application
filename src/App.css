@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
-* {
  
-}
 
- 
+:root {
+--purple-color:#7220ff;
+--green-color:#1ec946;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -38,7 +39,7 @@ button {
   width: 80%;
   outline: none;
   font-family: 'Montserrat', sans-serif;
-  padding: 0 3rem;
+  padding: 0 3rem ;
   font-size: 1rem;
 }
 @media (min-width: 1100px) {
@@ -47,7 +48,7 @@ button {
   .emailInput,
   .nameInput,
   .textarea {
-    padding: 0 5rem;
+    padding: 0 3rem;
   }
 }
 
@@ -55,18 +56,37 @@ button {
   padding: 1rem 1.5rem;
   height: 300px;
   border-radius: 1rem;
+  margin-top: 0.75rem;
 }
 
 .primaryButton {
   cursor: pointer;
-  background: #00cc66;
+  background: var(--purple-color);
   border-radius: 1rem;
   padding: 0.85rem 2rem;
   color: #ffffff;
   font-weight: 600;
   font-size: 1.25rem;
-  width: 80%;
-  margin: 0 auto;
+  width: 30%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input:auto-fill { 
+  outline: 5px solid rgb(0 0 0 / .5);
+}
+
+.purpleButton {
+  cursor: pointer;
+  background: #7220ff;
+  border-radius: 1rem;
+  padding: 0.85rem 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 83%;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,7 +147,7 @@ button {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #00cc66 transparent #00cc66 transparent;
+  border-color: var(--purple-color) transparent var(--purple-color) transparent;
   border-radius: 50%;
   animation: spin 4.2s linear infinite;
 }
@@ -147,12 +167,19 @@ button {
   margin-bottom: 2rem;
 }
 
+.profileHeader {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 
 .car__navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 6rem;
+  padding: 1.5rem 6rem;
   background-color: #282727;
 }
 
@@ -241,6 +268,14 @@ button {
   display: none;
  }
 
+ .car__footer{
+  
+  width: 100%;
+  height: 260px;   /* Height of the footer */
+  background: #6cf;
+  color: #fff;
+ }
+
  @media screen and (max-width:968px){
   .car__navbar-links_container{
     display: none;
@@ -302,7 +337,7 @@ nav.navbarNav{
 }
 
 p.navbarListItemNameActive{
-  color: white;
+  color: var(--purple-color);
 }
  
 .logo h1{
@@ -336,22 +371,22 @@ p.navbarListItemNameActive{
 
 .nameInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/badgeIcon.svg') #ffffff 2.5% center no-repeat;
-}
+ }
 
 .emailInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/personIcon.svg') #ffffff 2.5% center no-repeat;
-}
+ }
 
 .passwordInputDiv {
+  position: relative;
+}
+.emailInputDiv{
   position: relative;
 }
 
 .passwordInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/lockIcon.svg') #ffffff 2.5% center no-repeat;
-}
+ }
 
 .showPassword {
   cursor: pointer;
@@ -363,7 +398,7 @@ p.navbarListItemNameActive{
 
 .forgotPasswordLink {
   cursor: pointer;
-  color: #00cc66;
+  color: var(--purple-color);
   font-weight: 600;
   text-align: left;
   margin-left: 2rem;
@@ -405,7 +440,7 @@ p.navbarListItemNameActive{
   align-items: center;
   width: 3rem;
   height: 3rem;
-  background-color: #00cc66;
+  background-color: var(--purple-color);
   border-radius: 50%;
 }
 @media (min-width: 1024px) {
@@ -453,7 +488,7 @@ p.navbarListItemNameActive{
 
 .registerLink {
   margin-top: 4rem;
-  color: #00cc66;
+  color: var(--purple-color);
   font-weight: 600;
   text-align: center;
   margin-bottom: 3rem;
@@ -477,6 +512,8 @@ p.navbarListItemNameActive{
 
 .exploreCategoryHeading {
   margin-top: 3rem;
+  margin-left: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .swiper-container {
@@ -492,7 +529,17 @@ p.navbarListItemNameActive{
   position: relative;
   width: 100%;
   height: 100%;
+  /* border-radius: 1rem; */
 }
+
+.modifiedSwiperSlideDiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  
+}
+
 
 .swiperSlideImg {
   width: 100%;
@@ -502,8 +549,8 @@ p.navbarListItemNameActive{
 .swiperSlideText {
   color: #ffffff;
   position: absolute;
-  top: 70px;
-  left: 0;
+  top: 5px;
+  left: 15px;
   font-weight: 600;
   max-width: 90%;
   font-size: 1.25rem;
@@ -517,16 +564,18 @@ p.navbarListItemNameActive{
 }
 
 .swiperSlidePrice {
-  color: #000000;
+  color: #ffffff;
   position: absolute;
-  top: 143px;
-  left: 11px;
+  top: 230px;
+  left: 15px;
   font-weight: 600;
   max-width: 90%;
-  background-color: #ffffff;
-  padding: 0.25rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
   border-radius: 1rem;
 }
+ 
+
 @media (min-width: 1024px) {
   .swiperSlidePrice {
     font-size: 1.25rem;
@@ -543,16 +592,22 @@ p.navbarListItemNameActive{
 
 .exploreCategoryImg {
   min-height: 115px;
-  height: 15vw;
+  height: 20vw;
   width: 100%;
   border-radius: 1.5rem;
   object-fit: cover;
   margin: 0 auto;
 }
 
+.listing-paragraph{
+  margin-left: 1.75rem;
+}
+
 .exploreCategoryName {
+  font-size:1.2rem;
   font-weight: 500;
   text-align: left;
+  margin-left: 1.75rem;
 }
 
 .category {
@@ -576,7 +631,7 @@ p.navbarListItemNameActive{
 }
 
 .categoryListingImg {
-  width: 30%;
+  width: 35%;
   height: 100px;
   border-radius: 1.5rem;
   object-fit: cover;
@@ -590,10 +645,26 @@ p.navbarListItemNameActive{
 
 .categoryListingDetails {
   width: 65%;
+  margin-left: 1.5rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .categoryListingDetails {
     width: 79%;
+    
+  }
+}
+
+@media (max-width: 800px) {
+  div.categoryListingDetails {
+    width: 79%;
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 648px) {
+  div.categoryListingDetails {
+    width: 59%;
+    margin-left: 1.25rem;
   }
 }
 
@@ -614,7 +685,7 @@ p.navbarListItemNameActive{
   margin-top: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #00cc66;
+  color: var(--green-color);
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -624,6 +695,7 @@ p.navbarListItemNameActive{
   display: flex;
   justify-content: space-between;
   max-width: 275px;
+  margin-top: 1rem;
 }
 
 .categoryListingInfoText {
@@ -636,8 +708,8 @@ p.navbarListItemNameActive{
   width: 8rem;
   margin: 0 auto;
   text-align: center;
-  padding: 0.25rem 0.5rem;
-  background-color: #000000;
+  padding: 0.5rem 1rem;
+  background-color: #7220ff;
   color: #ffffff;
   font-weight: 600;
   border-radius: 1rem;
@@ -649,10 +721,16 @@ p.navbarListItemNameActive{
   margin-bottom: 10rem;
 }
 
+.listingDetails-modified {
+  margin-bottom: 10rem;
+  margin-top: 2.9rem;
+  margin-left: 2rem;
+}
+
 .shareIconDiv {
   cursor: pointer;
   position: fixed;
-  top: 3%;
+  top: 19.5%;
   right: 5%;
   z-index: 2;
   background-color: #ffffff;
@@ -664,11 +742,32 @@ p.navbarListItemNameActive{
   align-items: center;
 }
 
+.share-icon{
+  margin-left: 1.75rem;
+ 
+}
+
 .listingName {
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+.listingName-big {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 968px) {
+  .listingName-big {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+ 
+
 
 .listingLocation {
   margin-top: 0;
@@ -687,7 +786,7 @@ p.navbarListItemNameActive{
 
 .listingType {
   padding: 0.25rem 0.5rem;
-  background-color: #00cc66;
+  background-color: var(--green-color);
   color: #ffffff;
   border-radius: 2rem;
   display: inline;
@@ -696,14 +795,26 @@ p.navbarListItemNameActive{
   margin-right: 1rem;
 }
 
+.listingTypeRent {
+  padding: 0.25rem 0.5rem;
+  background-color:  #0d6efd;
+  color: #ffffff;
+  border-radius: 2rem;
+  display: inline;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
 .listingDetailsList {
   padding: 0;
   list-style-type: none;
 }
 .listingDetailsList li {
   margin: 0.3rem 0;
-  font-weight: 500;
+  font-weight: 600;
   opacity: 0.8;
+  margin-top:1rem;
 }
 
 .listingLocationTitle {
@@ -726,7 +837,8 @@ p.navbarListItemNameActive{
 
 .linkCopied {
   position: fixed;
-  top: 9%;
+  top: 14%;
+  border: 1px solid black;
   right: 5%;
   z-index: 2;
   background-color: #ffffff;
@@ -746,19 +858,21 @@ p.navbarListItemNameActive{
   font-weight: 600;
 }
 
-.contactLandlord {
+.contactSeller {
   margin-top: 2rem;
   display: flex;
   align-items: center;
 }
 
-.landlordName {
+.sellerName {
   font-weight: 600;
   font-size: 1.2rem;
+  margin-left: 1.75rem;
 }
 
 .messageForm {
   margin-top: 0.5rem;
+  margin-left: 1.75rem;
 }
 
 .messageDiv {
@@ -774,6 +888,10 @@ p.navbarListItemNameActive{
 
 .profile {
   margin-bottom: 10rem;
+}
+
+.profile-main{
+  margin-left: 1.75rem;
 }
 
 .profileHeader {
@@ -793,6 +911,10 @@ p.navbarListItemNameActive{
   border-radius: 1rem;
 }
 
+.profileDetailsText{
+  margin-left: 1rem;
+}
+
 .profileDetailsHeader {
   display: flex;
   justify-content: space-between;
@@ -807,7 +929,7 @@ p.navbarListItemNameActive{
 .changePersonalDetails {
   cursor: pointer;
   font-weight: 600;
-  color: #00cc66;
+  color: var(--purple-color);
 }
 
 .profileCard {
@@ -859,6 +981,7 @@ p.navbarListItemNameActive{
   padding: 0.25rem 1rem;
   box-shadow: rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
+  margin-left: 1.75rem;
   font-weight: 600;
   max-width: 500px;
   display: flex;
@@ -868,6 +991,7 @@ p.navbarListItemNameActive{
 
 .listingText {
   margin-top: 3rem;
+  margin-left:3rem;
   font-weight: 600;
 }
 
@@ -895,7 +1019,7 @@ p.navbarListItemNameActive{
   padding: 0.9rem 3rem;
   background-color: #ffffff;
   font-weight: 600;
-  border-radius: 1rem;
+  border-radius: 2.75em;
   font-size: 1rem;
   margin: 0.5rem 0.5rem 0 0;
   display: flex;
@@ -955,10 +1079,10 @@ p.navbarListItemNameActive{
 }
 
 .formInputFile {
-  width: 100%;
+  width: 25%;
 }
 .formInputFile::-webkit-file-upload-button {
-  background-color: #00cc66;
+  background-color: #28a745;
   border: none;
   color: #ffffff;
   font-weight: 600;

@@ -54,10 +54,11 @@ function SignIn() {
   return (
     <div className="pageContainer">
      <header>
-      <div className="pageHeader">Welcome Back !</div>
+      <div className="pageHeader">Sign In</div>
      </header>
 
      <form onSubmit={onSubmit}>
+     <div className="emailInputDiv">
       <input 
       type='email' 
       className='emailInput'
@@ -66,6 +67,7 @@ function SignIn() {
       value={email}
       onChange={onChange}
       />
+      </div>
       <div className="passwordInputDiv">
       <input 
       type={showPassword ? 'text' : 'password'} 

@@ -73,10 +73,11 @@ const onChange= (e) =>{
  return (
    <div className="pageContainer">
     <header>
-     <div className="pageHeader">Welcome Back !</div>
+     <div className="pageHeader">Sign Up</div>
     </header>
 
     <form onSubmit={onSubmit}>
+     
     <input 
      type='text' 
      className='nameInput'
