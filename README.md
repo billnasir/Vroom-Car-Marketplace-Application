@@ -1,6 +1,5 @@
 # car-rental
 A car rental application that uses firebase authentication, to rent and purchase cars.
-<<<<<<< HEAD
 =======
 
 1)Added Google Authentication via Firebase
