@@ -392,9 +392,23 @@ p.navbarListItemNameActive{
   cursor: pointer;
   position: absolute;
   top: -4%;
-  right: 9%;
+  right: 14%;
   padding: 1rem;
 }
+
+@media only screen and (max-width: 1100px) {
+  .showPassword  {
+    right: 11%;
+   }
+}
+
+@media only screen and (max-width: 968px) {
+  .showPassword  {
+    right: 9%;
+ 
+  }
+}
+
 
 .forgotPasswordLink {
   cursor: pointer;
